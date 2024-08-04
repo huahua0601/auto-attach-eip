@@ -28,6 +28,7 @@ export class AutoAttachEip2Ec2Stack extends cdk.Stack {
         code: lambda.Code.fromAsset('lib/lambda'),
         architecture: cdk.aws_lambda.Architecture.X86_64,
         logRetention: cdk.aws_logs.RetentionDays.ONE_WEEK,
+        role: autoAttachEIPLambdaRole,
     });
 
     autoAttachEIPLambda.addPermission('AllowEventBridgeInvocation', {
